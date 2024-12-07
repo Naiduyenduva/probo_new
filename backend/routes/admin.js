@@ -20,6 +20,18 @@ adminRouter.post("/signin", (req, res)=> {
     })
 })
 
+adminRouter.post("/events/create", (req,res) => {
+    res.json({
+        message : "prediction created successfully"
+    })
+})
+
+adminRouter.get("/events/all", (req, res)=> {
+    res.json({
+        message: "all my events that i uploaded"
+    })
+})
+
 module.exports = {
     adminRouter : adminRouter
 }

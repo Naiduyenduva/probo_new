@@ -15,11 +15,12 @@ const adminSchema = new Schema ({
     createdAT : {type: Date, default: Date.now }
 })
 
-const predictionSchema = new Schema ({
+const eventSchema = new Schema ({
     title : String,
     description : String,
+    catogery: String,
     outcome : String,
-    is_Settled : Boolean,
+    is_Settled : { type: Boolean, default: false },
     creatorId : ObjectId,
     createdAT : {type: Date, default: Date.now }
 })
@@ -33,12 +34,12 @@ const betSchema = new Schema ({
 
 const userModel = mongoose.model("user", userSchema);
 const adminModel = mongoose.model("admin", adminSchema);
-const predictionModel = mongoose.model("prediction", predictionSchema);
+const eventModel = mongoose.model("event", eventSchema);
 const betModel = mongoose.model("bet", betSchema);
 
 module.exports = {
     userModel : userModel,
     adminModel: adminModel,
-    predictionModel : predictionModel,
+    eventModel : eventModel,
     betModel : betModel
 }

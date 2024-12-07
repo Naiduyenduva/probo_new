@@ -19,6 +19,24 @@ userRouter.post('/signin', (req,res)=> {
     })
 })
 
+userRouter.post("/bet/buy", (req,res)=>{
+    res.json({
+        message: "order placed successfully"
+    })
+})
+
+userRouter.get("/bets/all", (req,res) => {
+    res.json({
+        message : "all my bet history"
+    })
+})
+
+userRouter.get("/prediction/all", (req, res)=> {
+    res.json({
+        message : "all the predictions"
+    })
+})
+
 module.exports = {
     userRouter: userRouter
 }
