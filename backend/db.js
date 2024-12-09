@@ -19,7 +19,6 @@ const eventSchema = new Schema ({
     title : String,
     description : String,
     catogery: String,
-    outcome : String,
     is_Settled : { type: Boolean, default: false },
     creatorId : ObjectId,
     createdAT : {type: Date, default: Date.now }
@@ -28,7 +27,7 @@ const eventSchema = new Schema ({
 const betSchema = new Schema ({
     userId : ObjectId,
     predictionId : ObjectId,
-    choice : String,
+    choice : { type: String, enum: ['yes', 'no'], required: true },
     createdAT : {type: Date, default: Date.now }
 })
 

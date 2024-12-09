@@ -1,8 +1,9 @@
 const { Router } = require("express");
-const { userModel } = require("../db");
+const { userModel, betModel, eventModel } = require("../db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
 const {JWT_USER_SECRET} = require("../config");
+const {userMiddleware} = require("../middlewares/user")
 const userRouter = Router();
 
 userRouter.post('/signup',async (req,res)=> {
@@ -45,21 +46,34 @@ userRouter.post('/signin',async (req,res)=> {
 
 })
 
-userRouter.post("/bet/buy", (req,res)=>{
+userRouter.post("/bet/buy",userMiddleware, async (req,res)=>{
+    const userId = req.userId;
+    const {betId, choice } = req.body;
+    await betModel.create({
+        userId,
+        betId,
+        choice
+    })
     res.json({
-        message: "order placed successfully"
+        message: "bet order placed successfully",
+        betId
     })
 })
 
-userRouter.get("/bets/all", (req,res) => {
+userRouter.get("/bets/all",userMiddleware, async (req,res) => {
+    const userId = req.userId;
+    const betmine = await betModel.find({userId})
     res.json({
-        message : "all my bet history"
+        message : "all my bet history",
+        betmine,
     })
 })
 
-userRouter.get("/prediction/all", (req, res)=> {
+userRouter.get("/prediction/all",async (req, res)=> {
+    const allPredictions = await eventModel.find({})
     res.json({
-        message : "all the predictions"
+        message : "all the predictions",
+        allPredictions
     })
 })
 
