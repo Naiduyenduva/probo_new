@@ -48,15 +48,14 @@ userRouter.post('/signin',async (req,res)=> {
 
 userRouter.post("/bet/buy",userMiddleware, async (req,res)=>{
     const userId = req.userId;
-    const {betId, choice } = req.body;
+    const { eventId, choice } = req.body;
     await betModel.create({
         userId,
-        betId,
+        eventId,
         choice
     })
     res.json({
         message: "bet order placed successfully",
-        betId
     })
 })
 
