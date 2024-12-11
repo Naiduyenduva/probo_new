@@ -7,16 +7,22 @@ const {userMiddleware} = require("../middlewares/user")
 const userRouter = Router();
 
 userRouter.post('/signup',async (req,res)=> {
-    const { username, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password.toLowerCase(),5)
-    console.log(hashedPassword);
-    await userModel.create({
-        username : username,
-        password: hashedPassword
-    })
-    res.json({
-        message: "signup"
-    })
+    try {
+        const { username, password } = req.body;
+        const hashedPassword = await bcrypt.hash(password.toLowerCase(),5)
+        console.log(hashedPassword);
+        await userModel.create({
+            username : username,
+            password: hashedPassword
+        })
+        res.json({
+            message: "signup"
+        })
+    }catch (err) {
+        res.json({
+            message: "error occured"
+        })
+    }
 })
 
 userRouter.post('/signin',async (req,res)=> {
