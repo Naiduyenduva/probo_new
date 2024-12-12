@@ -16,7 +16,9 @@ export default {
       colors: {
         customOrange: '#f1f7ff',
         customBlue: '#FFFFFF',
-        customBlood : '#FEF6F5'
+        customBlood : '#FEF6F5',
+        custBackground: '#F5F5F5',
+        customText: '#545454'
       },
     },
   },
