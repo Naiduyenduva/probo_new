@@ -3,7 +3,7 @@ import React from 'react'
 const Card = ({cards}) => {
  
   return (
-    <div className='grid grid-cols-3 gap-10 h-max'>
+    <div className='grid grid-cols-3 gap-10'>
       {
         cards.map((item,index)=> (
         <div className='bg-customBlue h-60 w-450 rounded-lg' key={index}>

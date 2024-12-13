@@ -27,11 +27,11 @@ const Render = () => {
           title: 'India,s GDP growth rate to be 8.4% or more for FY24-25?',
           description: '',
           image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgG3RUJ6QtkCj7bH2dTH-THv_L3Zn4aDBBGQ&s',
-        },
+        },   
       ]
   return (
     <div>
-        <div className='p-5'>
+        <div className='h-fit p-5'>
             <Card cards={array} />
         </div>
     </div>

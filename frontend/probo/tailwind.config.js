@@ -18,7 +18,8 @@ export default {
         customBlue: '#FFFFFF',
         customBlood : '#FEF6F5',
         custBackground: '#F5F5F5',
-        customText: '#545454'
+        customText: '#545454',
+        customRed: '#ff0000'
       },
     },
   },
