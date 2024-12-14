@@ -1,5 +1,4 @@
 import React from 'react'
-import { ArrowRight } from 'lucide-react';
 
 const LandingPage = () => {
   return (
@@ -7,9 +6,11 @@ const LandingPage = () => {
         <div className='flex justify-between p-3 px-20 pt-5'>
             <h1 className='font-bold ml-3 font-mono text-3xl'>Probo</h1>
             <div className='flex justify-around gap-10 font-semibold text-xl text-red-700 mt-1'>
-                <h2>Home</h2>
-                <h2>Demo</h2>
-                <h2>Contact</h2>
+                <button>Home</button>
+                <button>Trading</button>
+                <button>Demo</button>
+                <button>Careers</button>
+                <button>Contact</button>
             </div>
             <div className='flex'>
                 <button className='font-semibold mr-5 text-xl flex border-2 border-red-900 text-red-900 p-1 pl-5 rounded-xl w-24'>Login</button>
@@ -25,6 +26,9 @@ const LandingPage = () => {
                     <button className='font-semibold h-16 text-xl p-2 pl-5 rounded-xl w-60 bg-red-600 text-white text-center' >Sign up</button>
                 </div>
             </div>
+        </div>
+        <div>
+
         </div>
     </div>
   )
