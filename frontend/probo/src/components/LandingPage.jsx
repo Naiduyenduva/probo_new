@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import Contact from './contact'
 
 const LandingPage = () => {
   return (
@@ -13,7 +15,7 @@ const LandingPage = () => {
                 <button>Contact</button>
             </div>
             <div className='flex'>
-                <button className='font-semibold mr-5 text-xl flex border-2 border-red-900 text-red-900 p-1 pl-5 rounded-xl w-24'>Login</button>
+                <button className='font-semibold mr-5 text-xl flex border-2 border-red-900 text-red-900 p-1 pl-5 rounded-xl w-24'><Link to='/dashboard'>Login</Link></button>
                 <h2 className='font-semibold mr-5 text-xl flex p-1 pl-5 rounded-xl w-36 bg-red-600 text-white'>Try for free</h2>
             </div>
         </div>
@@ -29,6 +31,9 @@ const LandingPage = () => {
         </div>
         <div>
 
+        </div>
+        <div className='mt-10'>
+            <Contact />
         </div>
     </div>
   )

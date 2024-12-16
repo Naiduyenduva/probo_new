@@ -1,19 +1,20 @@
 import './App.css'
 import LandingPage from './components/LandingPage'
-import Navbar from './components/Navbar'
-import Render from './components/Render'
-import Contact from './components/Contact'
+import {BrowserRouter as Router, Routes, Route, BrowserRouter} from 'react-router-dom'
+import Dashboard from './components/Dashboard'
 
 function App() {
 
   return (
     <>
-    <div>
-      <LandingPage />
-      <Contact />
-        {/* <Navbar />
-        <Render /> */}
-    </div>
+    <Router>
+     <div>
+    <Routes>
+      <Route path='/' element={<LandingPage />} />
+      <Route path='/dashboard' element={<Dashboard />} />
+    </Routes>
+      </div>
+    </Router>
     </>
   )
 }
