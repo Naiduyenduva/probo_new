@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Contact from './contact'
 import Card from './Card'
-import { UserRoundPen } from 'lucide-react';
-import { BookA } from 'lucide-react';
-import { Activity } from 'lucide-react';
+import Button from './Button'
+import { UserRoundPen, BookA, Activity } from 'lucide-react';
 
 const LandingPage = () => {
 
@@ -49,6 +49,7 @@ const LandingPage = () => {
             icon: Activity
         }
     ]
+
   return (
     <div className='bg-red-50 h-screen'>
         <div className='flex justify-between p-3 px-20 pt-5'>
@@ -61,18 +62,20 @@ const LandingPage = () => {
                 <button>Contact</button>
             </div>
             <div className='flex'>
-                <button className='font-semibold mr-5 text-xl flex border-2 border-red-900 text-red-900 p-1 pl-5 pt-2 rounded-xl w-24'><Link to='/dashboard'>Login</Link></button>
-                <button className='font-semibold mr-5 h-12 text-xl flex p-1 pl-5 pt-2 rounded-xl w-36 bg-red-600 text-white bg-gradient-to-b from-red-600 to-red-900'>Try for free</button>
+            <Link to='/dashboard'><Button text ='Login' variant='primary' /></Link>
+                <Button text ='Try for free' variant='secondary' />
             </div>
         </div>
         <div className='mt-20 mr-20'>
             <h1 className='text-8xl font-bold ml-32 mb-10'>Invest in your <span className='bg-gradient-to-b from-red-500 to-red-900 text-transparent bg-clip-text'>Point of view</span> with your valuble money</h1>
             <h2 className='text-3xl w-7/12 ml-80 mt-5 font-extralight'>Build your knowledge and form your opinions and views about upcoming events in the world.</h2>
-            <div className='mt-16 bg-white p-3 pl-12 shadow-md shadow-red-400 w-fit ml-96 rounded-xl flex'>
-                <input type='text' placeholder='Enter your email' className='p-2 w-96 h-16 mr-4 rounded-xl' />
-                <div className='flex'>
-                    <button className='font-semibold h-16 text-xl p-2 pl-5 rounded-xl w-60 bg-gradient-to-b from-red-600 to-red-900 text-white text-center' >Sign up</button>
+            <div className='flex justify-center'>
+            <div className='mt-16 bg-white p-3 pl-12 shadow-md shadow-red-400 w-fit rounded-xl flex'>
+                <input type='text' placeholder='Enter your email' className='p-2 w-96 h-16 mr-4 rounded-xl focus:outline-none text-xl' />
+                <div className='flex mt-2'>
+                    <Button text='Signup here' variant='secondary' />
                 </div>
+            </div>    
             </div>
         </div>
             <div className='bg-red-900 mt-20 p-10 pt-20 pb-20'>
@@ -102,8 +105,8 @@ const LandingPage = () => {
                     array3.map((item,index) => {
                         return (
                             <div className='bg-blue-100 m-2 rounded-lg p-5 h-80 w-450  justify-center' key={index}>
-                                < item.icon size={100} className='ml-32 mt-12' /><br/>
-                                <h1 className='text-3xl font-semibold mt-5'>{item.title}</h1>
+                                < item.icon size={90} className='ml-32 mt-12' absoluteStrokeWidth='false'/><br/>
+                                <h1 className='text-3xl font-normal mt-5'>{item.title}</h1>
                             </div>
                         )
                 })
