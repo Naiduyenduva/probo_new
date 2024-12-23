@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className='bg-customBlue'>
       <section className='flex justify-between p-5'>
         <div>
-          <h1 className='font-bold ml-3 font-mono text-3xl'>Probo</h1>
+          <h1 className='font-bold ml-3 font-mono text-2xl'>Probo</h1>
         </div>
         <div className='flex justify-around gap-10 font-normal text-customText text-xl'>
           <h2>Cricket</h2>

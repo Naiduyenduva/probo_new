@@ -9,7 +9,6 @@ const Dashboard = () => {
         <div>
             <Navbar />
             <Render />
-            <Button text ='Login' variant='secondary' />
         </div>
     </div>
   )
