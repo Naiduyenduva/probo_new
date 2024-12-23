@@ -9,11 +9,11 @@ const matchOrder = async ( newOrder ) => {
         eventId,
         orderType: oppositeType,
         status: "open",
+        userId: { $ne: newOrder.userId },
         price: orderType === "buy" ? { $lte: price } : { $gte: price }
     }).sort({ price: orderType === "buy" ? 1 : -1, createdAT: 1 });
 
     let remainingQuantity = quantity;
-    console.log("function before the loop")
 
     for (const match of matchingOrders) {
         if (remainingQuantity <= 0) break;
@@ -31,7 +31,6 @@ const matchOrder = async ( newOrder ) => {
         console.log(`Matched ${matchedQuantity} units between orders`);
     }
 
-    console.log("just came out of the loop")
     if (remainingQuantity > 0) {
         newOrder.quantity = remainingQuantity;
         newOrder.status = "open";
