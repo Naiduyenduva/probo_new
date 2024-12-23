@@ -6,10 +6,11 @@ const { MongoURL } = require("./config")
 
 const { userRouter } = require("./routes/user");
 const { adminRouter } = require ("./routes/admin")
-
+const {orderRouter} = require("./routes/order")
 app.use(express.json())
 
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/order", orderRouter);
 app.use("/api/v1/admin", adminRouter);
 
 async function main () {

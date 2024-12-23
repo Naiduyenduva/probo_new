@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { userModel, betModel, eventModel } = require("../db");
+const { userModel, eventModel } = require("../db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
 const {JWT_USER_SECRET} = require("../config");
@@ -50,28 +50,6 @@ userRouter.post('/signin',async (req,res)=> {
         })
     }
 
-})
-
-userRouter.post("/bet/buy",userMiddleware, async (req,res)=>{
-    const userId = req.userId;
-    const { eventId, choice } = req.body;
-    await betModel.create({
-        userId,
-        eventId,
-        choice
-    })
-    res.json({
-        message: "bet order placed successfully",
-    })
-})
-
-userRouter.get("/bets/all",userMiddleware, async (req,res) => {
-    const userId = req.userId;
-    const betmine = await betModel.find({userId})
-    res.json({
-        message : "all my bet history",
-        betmine,
-    })
 })
 
 userRouter.get("/prediction/all",async (req, res)=> {
