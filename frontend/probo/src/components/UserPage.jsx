@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card'
 
-const Render = () => {
+const UserPage = () => {
     const array = [
         {
           title: 'Zimbabwe to win the 1st T20I vs Afganistan?',
@@ -38,4 +38,4 @@ const Render = () => {
   )
 }
 
-export default Render
+export default UserPage

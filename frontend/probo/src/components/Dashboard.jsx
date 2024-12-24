@@ -1,14 +1,13 @@
 import React from 'react'
 import Navbar from './Navbar'
-import Render from './Render'
-import Button from './Button'
+import UserPage from './UserPage'
 
 const Dashboard = () => {
   return (
     <div>
         <div>
             <Navbar />
-            <Render />
+            <UserPage />
         </div>
     </div>
   )
