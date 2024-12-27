@@ -27,7 +27,7 @@ const eventSchema = new Schema ({
 const orderBookSchema = new Schema({
     eventId: { type: ObjectId, required: true, ref: "event" },
     userId: { type: ObjectId, required: true, ref: "user" }, 
-    orderType: { type: String, enum: ['buy', 'sell'], required: true },
+    orderType: { type: String, enum: ['yes', 'no'], required: true },
     price: { type: Number, required: true },
     quantity: { type: Number, required: true },
     status: { type: String, enum: ['open', 'completed', 'canceled'], default: 'open' },

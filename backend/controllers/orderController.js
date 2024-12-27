@@ -2,16 +2,16 @@ const { orderBookModel } = require("../db")
 
 const matchOrder = async ( newOrder ) => {
     const { eventId, orderType, price, quantity } = newOrder;
-    const oppositeType = orderType === "buy" ? "sell" : "buy";
+    const oppositeType = orderType === "no" ? "yes" : "no";
     console.log("function starting")
 
     const matchingOrders = await orderBookModel.find({
-        eventId,
+        eventId: { $eq: newOrder.eventId },
         orderType: oppositeType,
         status: "open",
         userId: { $ne: newOrder.userId },
-        price: orderType === "buy" ? { $lte: price } : { $gte: price }
-    }).sort({ price: orderType === "buy" ? 1 : -1, createdAT: 1 });
+        price: 10-price
+    }).sort({ createdAT: 1 });
 
     let remainingQuantity = quantity;
 

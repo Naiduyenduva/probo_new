@@ -38,6 +38,8 @@ const CheckoutPage = ({onClose,eventDetails}) => {
         youPut = eventDetails.no * quantity;
         youGet = eventDetails.yes * quantity;
     }
+
+    
   return (
     <Sheet open onOpenChange={onClose}>
       <SheetContent side="right">
