@@ -10,7 +10,6 @@ userRouter.post('/signup',async (req,res)=> {
     try {
         const { username, password } = req.body;
         const hashedPassword = await bcrypt.hash(password.toLowerCase(),5)
-        console.log(hashedPassword);
         await userModel.create({
             username : username,
             password: hashedPassword
@@ -25,7 +24,7 @@ userRouter.post('/signup',async (req,res)=> {
     }
 })
 
-userRouter.post('/signin',async (req,res)=> {
+userRouter.post('/signin', async (req,res)=> {
     const {username, password} = req.body;
 
     const user = await userModel.findOne({

@@ -3,11 +3,13 @@ const express = require("express")
 const mongoose = require("mongoose");
 const app = express();
 const { MongoURL } = require("./config")
+const cors = require("cors")
 
 const { userRouter } = require("./routes/user");
 const { adminRouter } = require ("./routes/admin")
 const {orderRouter} = require("./routes/order")
-app.use(express.json())
+app.use(express.json());
+app.use(cors())
 
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/order", orderRouter);

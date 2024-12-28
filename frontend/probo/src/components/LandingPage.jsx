@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Contact from './contact'
 import Card from './Card'
@@ -62,7 +61,7 @@ const LandingPage = () => {
                 <button>Contact</button>
             </div>
             <div className='flex'>
-            <Link to='/dashboard'><Button text ='Login' variant='primary' /></Link>
+            <Link to='/login'><Button text ='Login' variant='primary' /></Link>
                 <Button text ='Try for free' variant='secondary' />
             </div>
         </div>
@@ -73,7 +72,9 @@ const LandingPage = () => {
                 <div className='bg-white shadow-md shadow-red-400 w-fit rounded-xl flex'>
                     <input type='text' placeholder='Enter your email' className='p-3 w-96 h-16 mr-4 rounded-xl focus:outline-none text-xl' />
                     <div className='flex mt-3'>
+                        <Link to='/signup'>
                         <Button text='Signup here' variant='secondary' />
+                        </Link>
                     </div>
                 </div>    
             </div>

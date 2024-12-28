@@ -23,7 +23,7 @@ const CheckoutPage = ({onClose,eventDetails}) => {
   }
 
   function handleQuantityIncrease() {
-    setQuantity(prev => prev + 1)
+    setQuantity(prev =>Math.min( prev + 1,10))
   }
   function handleQuantityDecrease() {
     setQuantity(prev => Math.max(prev - 1, 1))
@@ -39,7 +39,6 @@ const CheckoutPage = ({onClose,eventDetails}) => {
         youGet = eventDetails.yes * quantity;
     }
 
-    
   return (
     <Sheet open onOpenChange={onClose}>
       <SheetContent side="right">
