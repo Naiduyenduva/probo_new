@@ -46,7 +46,7 @@ const CheckoutPage = ({onClose,eventDetails}) => {
       try {
           const price = orderType === "yes" ? eventDetails.yes : eventDetails.no;
           const token = localStorage.getItem("token");
-          const response = await fetch("http://localhost:3000/api/v1/order/order",{
+          const response = await fetch("https://probo-new.vercel.app/api/v1/order/order",{
             method: "POST",
             headers: {
               "Content-Type": "application/json",

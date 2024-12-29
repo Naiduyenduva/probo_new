@@ -9,7 +9,7 @@ const UserPage = () => {
 
       const handleEvents = async () => {
         try {
-            const response = await fetch("http://localhost:3000/api/v1/admin/events/all",{
+            const response = await fetch("https://probo-new.vercel.app/api/v1/admin/events/all",{
               method: "GET",
               headers: {
                 "Content-Type": "application/json"

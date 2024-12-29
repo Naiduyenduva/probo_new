@@ -9,7 +9,7 @@ const UserHistory = ({onClose}) => {
         const handleHistory = async () => {
          try {
              const token = localStorage.getItem("token")
-             const response = await fetch("http://localhost:3000/api/v1/user/history",{
+             const response = await fetch("https://probo-new.vercel.app/api/v1/user/history",{
                  method: "GET",
                  headers: {
                      "Content-Type": "application/json",
