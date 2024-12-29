@@ -21,6 +21,10 @@ async function main () {
 }
 main();
 
+app.get('/', (req, res) => {
+    res.send('Welcome to Probo')
+  })
+
 const PORT = process.env.PORT || 3000
 
 console.log("running")
