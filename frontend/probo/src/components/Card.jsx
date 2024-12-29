@@ -13,7 +13,7 @@ const Card = ({cards,onSendData}) => {
   const closeModal = () => setIsModalOpen(false);
  
   return (
-    <div className='grid grid-cols-3 gap-10'>
+    <div className='grid grid-cols-1 sm:grid-cols-3 gap-10'>
       {
         cards.map((item,index)=> (
         <div className='bg-customBlue rounded-lg' key={index}>

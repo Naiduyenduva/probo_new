@@ -19,6 +19,9 @@ const eventSchema = new Schema ({
     title : String,
     description : String,
     catogery: String,
+    image: String,
+    yes: Number,
+    no: Number,
     is_Settled : { type: Boolean, default: false },
     creatorId : ObjectId,
     createdAT : {type: Date, default: Date.now }
@@ -26,6 +29,7 @@ const eventSchema = new Schema ({
 
 const orderBookSchema = new Schema({
     eventId: { type: ObjectId, required: true, ref: "event" },
+    eventName: { type: String, required: true},
     userId: { type: ObjectId, required: true, ref: "user" }, 
     orderType: { type: String, enum: ['yes', 'no'], required: true },
     price: { type: Number, required: true },

@@ -47,12 +47,15 @@ adminRouter.post("/signin", async (req, res)=> {
 
 adminRouter.post("/events/create",adminMiddleware, async (req,res) => {
     const creatorId = req.adminId;
-    const { title, description, catogery } = req.body;
+    const { title, description, catogery, image, yes, no} = req.body;
 
     const eventdetails = await eventModel.create({
         title: title,
         description: description,
         catogery: catogery,
+        image:image,
+        yes:yes,
+        no:no,
         creatorId: creatorId
     })
 

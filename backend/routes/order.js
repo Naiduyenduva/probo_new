@@ -7,11 +7,12 @@ const orderRouter = Router();
 
 orderRouter.post("/order",userMiddleware, async (req,res) => {
     const userId = req.userId;
-    const {eventId,orderType,price,quantity,status} = req.body;
+    const {eventId,eventName,orderType,price,quantity,status} = req.body;
 
     const newOrder = await orderBookModel.create ({
         userId:userId,
         eventId: eventId,
+        eventName: eventName,
         orderType: orderType,
         price: price,
         quantity: quantity,

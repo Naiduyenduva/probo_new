@@ -12,14 +12,17 @@ import Button from './Button'
 
 const CheckoutPage = ({onClose,eventDetails}) => {
   const [quantity,setQuantity] = useState(1);
-  const [selectedOption, setSelectedOption] = useState("yes");
+  const [orderType, setOrderType] = useState("yes");
+  const [error,setError] = useState(null)
+  const eventId = eventDetails._id;
+  const eventName = eventDetails.title
 
 
   function handlebutton1 () {
-    setSelectedOption("yes")
+    setOrderType("yes")
   }
   function handlebutton2 () {
-    setSelectedOption("no")
+    setOrderType("no")
   }
 
   function handleQuantityIncrease() {
@@ -31,12 +34,34 @@ const CheckoutPage = ({onClose,eventDetails}) => {
 
     let youPut
     let youGet
-    if(selectedOption === "yes") {
+    if(orderType === "yes") {
         youPut = eventDetails.yes * quantity;
         youGet = eventDetails.no * quantity;
     } else {
         youPut = eventDetails.no * quantity;
         youGet = eventDetails.yes * quantity;
+    }
+
+    const handleOrderSubmit = async () => {
+      try {
+          const price = orderType === "yes" ? eventDetails.yes : eventDetails.no;
+          const token = localStorage.getItem("token");
+          const response = await fetch("http://localhost:3000/api/v1/order/order",{
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "token": token
+            },
+            body: JSON.stringify({eventId,eventName,orderType,quantity,price})
+          })
+          if(response.ok) {
+            alert("order placed successfully")
+          } else {
+            throw new Error ("something happened")
+          }
+      } catch (error) {
+        setError(error.message)
+      }
     }
 
   return (
@@ -49,8 +74,8 @@ const CheckoutPage = ({onClose,eventDetails}) => {
             <div>
                 <div className='bg-white w-fit grid justify-center p-2 gap-5'>
                     <div className='flex gap-5'>
-                      <OptionButton text={`Yes ${eventDetails.yes}`} variant={selectedOption === "yes" ? "secondaryYes" : "primaryYes"} onClick={handlebutton1}></OptionButton>
-                      <OptionButton text={`No ${eventDetails.no}`} variant={selectedOption === "no" ? "secondaryNo" : "primaryNo"} onClick={handlebutton2} ></OptionButton>
+                      <OptionButton text={`Yes ${eventDetails.yes}`} variant={orderType === "yes" ? "secondaryYes" : "primaryYes"} onClick={handlebutton1}></OptionButton>
+                      <OptionButton text={`No ${eventDetails.no}`} variant={orderType === "no" ? "secondaryNo" : "primaryNo"} onClick={handlebutton2} ></OptionButton>
                     </div>
                     <div className='flex gap-5'>
                       <p>Quantity</p>
@@ -65,7 +90,7 @@ const CheckoutPage = ({onClose,eventDetails}) => {
                       <h1 className='w-20 text-center font-semibold'>You get<br/> {youGet}</h1>
                     </div>
                 </div>
-                <Button text="Place Order" variant='secondary' buttonwidth='w-[350px]'></Button>
+                <Button text="Place Order" variant='secondary' buttonwidth='w-[350px]' onClick={handleOrderSubmit}></Button>
             </div>
       </SheetContent>
     </Sheet>

@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { userModel, eventModel } = require("../db");
+const { userModel, eventModel, orderBookModel } = require("../db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
 const {JWT_USER_SECRET} = require("../config");
@@ -51,11 +51,21 @@ userRouter.post('/signin', async (req,res)=> {
 
 })
 
-userRouter.get("/prediction/all",async (req, res)=> {
-    const allPredictions = await eventModel.find({})
+userRouter.get("/history",userMiddleware,async (req, res)=> {
+    const userId = req.userId;
+    const allPredictions = await orderBookModel.find({userId})
+
+    let eventData = [];
+    for(let i=0;i<allPredictions.length;i++) {
+        eventData.push(allPredictions[i].eventId);
+    }
+    const eventdatacollection = await eventModel.find({
+        _id: { $in: eventData }
+    })
     res.json({
         message : "all the predictions",
-        allPredictions
+        allPredictions,
+        eventdatacollection
     })
 })
 
