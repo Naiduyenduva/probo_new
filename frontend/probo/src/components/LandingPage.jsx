@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Contact from './contact'
+import Contact from './Contact'
 import Card from './Card'
 import Button from './Button'
 import { UserRoundPen, BookA, Activity } from 'lucide-react';
