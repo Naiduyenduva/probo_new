@@ -82,8 +82,21 @@ const LandingPage = () => {
             <div className='bg-red-900 mt-20 p-10 pt-20 pb-20'>
                 <h1 className='text-5xl font-bold text-white pb-10'>How this works ?</h1>
                 <p className='text-xl text-white text-center pb-10'>Create an account and login. After login you will see bunch of events and every event has 2 options Yes and No.<br/> After analyzing the question of the event you can choose one of the mentioned options from the event.<br/> After that you'll redirects to orderbook then you can place the order. After a verification your order will placed.</p>
-                <div className='mt-10 ml-4'>
-                    <Card cards={array1} />
+                <div className='grid grid-cols-3 gap-10'>
+                    { array1.map((arr,index)=> (
+                        <div className='bg-customBlue rounded-lg' key={index}>
+                            <div className='flex p-5'>
+                                <img src={arr.image} alt='image' className='h-16 w-16' />
+                                <h1 className='text-black text-lg font-semibold'>{arr.title}</h1> 
+                            </div>
+                            <div className='flex text-black m-5 gap-10 ml-6 mt-6'>
+                                <button className='h-8 rounded-md w-48 bg-customOrange text-blue-600'>Yes {arr.yes}</button>
+                                <button className='h-8 rounded-md w-48 bg-customBlood text-red-800' >No {arr.no}</button>
+                            </div>
+                    </div>
+                    ))
+                        
+                    }
                 </div>
             </div>
     
