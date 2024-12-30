@@ -9,6 +9,12 @@ const userRouter = Router();
 userRouter.post('/signup',async (req,res)=> {
     try {
         const { username, password } = req.body;
+
+        const existingUser = await userModel.findOne({ username: username });
+        if (existingUser) {
+            return res.status(400).json({ message: "username is already in use" });
+        }
+        
         const hashedPassword = await bcrypt.hash(password.toLowerCase(),5)
         await userModel.create({
             username : username,
@@ -19,7 +25,7 @@ userRouter.post('/signup',async (req,res)=> {
         })
     }catch (err) {
         res.json({
-            message: "error occured"
+            message: "username already exists"
         })
     }
 })

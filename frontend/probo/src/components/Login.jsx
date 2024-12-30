@@ -31,24 +31,29 @@ const Login = () => {
                 alert("Login successfull")
                 navigate("/dashboard")
             } else {
-                throw new Error ("Credentials not found")
+                throw new Error ("Invalid Username & Password")
             }
             const data = await response.json();
             localStorage.setItem('token',data.token)
-            console.log(data)
         } catch (error) {
             setError(error.message)
         }
      }
+     console.log(error)
 
   return (
-    <div className='p-5 flex justify-center h-screen'>
+    <div className='p-5 grid justify-center h-screen'>
         <div className='grid justify-center p-10 shadow-md rounded-xl bg-slate-50 h-[390px] mt-16'>
             <h1 className='font-semibold text-2xl'>Login</h1>
             <Input type="text" placeholder="Username" required={true} value={username} onChange={handleUsernameChange} className="w-72 h-10" />
             <Input type="password" placeholder="Password" required={true} value={password} onChange={handlePasswordChange} className="w-72 h-10" />
             <h2>Dont't have an account? <Link to='/signup'><span className='text-red-900 font-semibold'>Signup</span></Link></h2>
             <Button text='Login' variant='secondary' onClick={handleLogin} />
+        </div>
+        <div>
+            {
+                error && <p className='font-semibold'>{error}</p>
+            }
         </div>
     </div>
   )
