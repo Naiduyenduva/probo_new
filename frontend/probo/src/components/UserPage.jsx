@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
+import UserHistory from './UserHistory';
 
-const UserPage = () => {
+const UserPage = ({history,setHistory}) => {
     const [error, setError] = useState(null)
     const [eventsArray, setEventsArray] = useState([]);
+    const closeModal = () => setHistory(false);
+
    
     useEffect(()=> {
 
@@ -31,9 +34,13 @@ const UserPage = () => {
     
   return (
     <div>
-        <div className='h-fit p-5'>
-            <Card cards={eventsArray} />
-        </div>
+      {
+        history ? ( <UserHistory onClose={closeModal} /> ) : (
+          <div className='h-fit p-5'>
+          <Card cards={eventsArray} />
+      </div>
+        )
+      } 
     </div>
   )
 }
