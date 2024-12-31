@@ -35,7 +35,7 @@ const UserHistory = ({onClose}) => {
             <h1 className='font-bold text-xl'>User history</h1>
             <button onClick={onClose} className='h-5 w-5 mr-20'><X /></button>
         </div>
-    <div className='text-black grid grid-cols-3 p-5 text-left'>
+    <div className='text-black grid sm:grid-cols-3 p-5 text-left'>
                 {
                     history.map((each,index)=>(
                         <div className='p-5 rounded-md mb-5 bg-[rgb(255,255,255)] font-semibold w-96' key={index}>
