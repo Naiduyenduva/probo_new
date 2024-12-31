@@ -32,18 +32,30 @@ const UserHistory = ({onClose}) => {
   return (
     <div className='bg-[rgb(245,245,245)] text-right'>
         <div className='flex justify-between px-10 pt-2'>
-            <h1 className='font-bold text-xl'>User history</h1>
+            <h1 className='font-semibold text-xl'>User history</h1>
             <button onClick={onClose} className='h-5 w-5 mr-20'><X /></button>
         </div>
     <div className='text-black grid sm:grid-cols-3 p-5 text-left'>
                 {
                     history.map((each,index)=>(
-                        <div className='p-5 rounded-md mb-5 bg-[rgb(255,255,255)] font-semibold w-96' key={index}>
-                        <h1 className='font-semibold text-red-700'>{each.eventName}</h1>
-                        <h2>Ordertype : {each.orderType}</h2>
-                        <h1>Price: {each.price}</h1>
-                        <h2>Quantity : {each.quantity}</h2>
-                        <h2 className='text-green-600'>Status : {each.status}</h2>
+                        <div className='p-5 rounded-md mb-5 bg-[rgb(255,255,255)] font-semibold sm:w-96  shadow-lg' key={index}>
+                        <h1 className='font-semibold text-gray-900'>{each.eventName}</h1>
+                        <div>
+                            <span className='text-gray-600 text-sm'>OrderType : </span>
+                            <span className='text-gray-900'>{each.orderType}</span>
+                        </div>                        
+                        <div>
+                            <span className='text-gray-600 text-sm'>Price: </span>
+                            <span className='text-gray-900'>{each.price}</span>
+                        </div>                        
+                        <div>
+                            <span className='text-gray-600 text-sm'>Quantity : </span>
+                            <span className='text-gray-900'>{each.quantity}</span>
+                        </div>           
+                        <div>
+                            <span className='text-green-600 text-sm'>Status : </span>
+                            <span className='text-green-800'>{each.status}</span>
+                        </div>              
                     </div>
                     ))
                 }
