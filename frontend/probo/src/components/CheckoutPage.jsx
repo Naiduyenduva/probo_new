@@ -42,6 +42,8 @@ const CheckoutPage = ({onClose,eventDetails}) => {
         youGet = eventDetails.yes * quantity;
     }
 
+    let totalQuantity = quantity;
+
     const handleOrderSubmit = async () => {
       try {
           const price = orderType === "yes" ? eventDetails.yes : eventDetails.no;
@@ -52,7 +54,7 @@ const CheckoutPage = ({onClose,eventDetails}) => {
               "Content-Type": "application/json",
               "token": token
             },
-            body: JSON.stringify({eventId,eventName,orderType,quantity,price})
+            body: JSON.stringify({eventId,eventName,orderType,youPut,youGet,quantity,totalQuantity,price})
           })
           if(response.ok) {
             alert("order placed successfully")

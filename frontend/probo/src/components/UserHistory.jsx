@@ -28,6 +28,8 @@ const UserHistory = ({onClose}) => {
         }
         handleHistory();
     },[])
+    console.log(history)
+    console.log("hii")
 
   return (
     <div className='bg-[rgb(245,245,245)] text-right'>
@@ -49,8 +51,20 @@ const UserHistory = ({onClose}) => {
                             <span className='text-gray-900'>{each.price}</span>
                         </div>                        
                         <div>
-                            <span className='text-gray-600 text-sm'>Quantity : </span>
+                            <span className='text-gray-600 text-sm'>You Put : </span>
+                            <span className='text-gray-900'>{each.youPut}</span>
+                        </div>                        
+                        <div>
+                            <span className='text-gray-600 text-sm'>You Get : </span>
+                            <span className='text-gray-900'>{each.youGet}</span>
+                        </div>                        
+                        <div>
+                            <span className='text-gray-600 text-sm'>RemainingQuantity : </span>
                             <span className='text-gray-900'>{each.quantity}</span>
+                        </div>           
+                        <div>
+                            <span className='text-gray-600 text-sm'>Total Quantity : </span>
+                            <span className='text-gray-900'>{each.totalQuantity}</span>
                         </div>           
                         <div>
                             <span className='text-green-600 text-sm'>Status : </span>
