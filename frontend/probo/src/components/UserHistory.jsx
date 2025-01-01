@@ -28,8 +28,7 @@ const UserHistory = ({onClose}) => {
         }
         handleHistory();
     },[])
-    console.log(history)
-    console.log("hii")
+
 
   return (
     <div className='bg-[rgb(245,245,245)] text-right'>

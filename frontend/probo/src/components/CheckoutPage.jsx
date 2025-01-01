@@ -14,6 +14,7 @@ const CheckoutPage = ({onClose,eventDetails}) => {
   const [quantity,setQuantity] = useState(1);
   const [orderType, setOrderType] = useState("yes");
   const [error,setError] = useState(null)
+  const [balance,setBalance] = useState(150)
   const eventId = eventDetails._id;
   const eventName = eventDetails.title
 
@@ -44,6 +45,14 @@ const CheckoutPage = ({onClose,eventDetails}) => {
 
     let totalQuantity = quantity;
 
+    const userBalance = () => {
+      let betAmount = youPut
+        if(betAmount > balance) return;
+        setBalance(prev => prev - betAmount)
+        console.log(balance)
+        handleOrderSubmit();
+    }
+
     const handleOrderSubmit = async () => {
       try {
           const price = orderType === "yes" ? eventDetails.yes : eventDetails.no;
@@ -64,6 +73,7 @@ const CheckoutPage = ({onClose,eventDetails}) => {
       } catch (error) {
         setError(error.message)
       }
+      console.log(balance)
     }
 
   return (
@@ -92,7 +102,7 @@ const CheckoutPage = ({onClose,eventDetails}) => {
                       <h1 className='w-20 text-center font-semibold'>You get<br/> {youGet}</h1>
                     </div>
                 </div>
-                <Button text="Place Order" variant='secondary' buttonwidth='w-[350px]' onClick={handleOrderSubmit}></Button>
+                <Button text="Place Order" variant='secondary' buttonwidth='w-[350px]' onClick={userBalance}></Button>
             </div>
       </SheetContent>
     </Sheet>

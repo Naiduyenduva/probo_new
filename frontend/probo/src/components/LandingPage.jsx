@@ -65,7 +65,7 @@ const LandingPage = () => {
                 <Button text ='Try for free' variant='secondary' />
             </div>
         </div>
-        <div className='mt-20 sm:pl-44'>
+        <div className='mt-20 sm:pl-44 pb-5'>
             <h1 className='sm:text-6xl text-2xl font-bold sm:mb-10 sm:w-10/12'>Invest in your <span className='bg-gradient-to-b from-red-500 to-red-900 text-transparent bg-clip-text'>Point of view</span><br/> with your valuble money</h1>
             <h2 className='sm:text-3xl text-lg sm:ml-28 sm:w-7/12 mt-5 font-extralight'>Build your knowledge and form your opinions and views about upcoming events in the world.</h2>
             <div className='mt-8 sm:ml-36 sm:block m-2'>
@@ -82,7 +82,7 @@ const LandingPage = () => {
             <div className='bg-red-900 mt-20 p-10 pt-20 pb-20'>
                 <h1 className='sm:text-5xl text-4xl font-bold text-white pb-10'>How this works ?</h1>
                 <p className='text-xl text-white text-center pb-10'>Create an account and login. After login you will see bunch of events and every event has 2 options Yes and No.<br/> After analyzing the question of the event you can choose one of the mentioned options from the event.<br/> After that you'll redirects to orderbook then you can place the order. After a verification your order will placed.</p>
-                <div className='grid sm:grid-cols-3 gap-10'>
+                <div className='grid sm:grid-cols-3 gap-10 p-3'>
                     { array1.map((arr,index)=> (
                         <div className='bg-customBlue rounded-lg w-80 sm:w-auto' key={index}>
                             <div className='flex p-5'>
