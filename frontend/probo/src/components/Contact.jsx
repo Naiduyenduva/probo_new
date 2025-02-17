@@ -11,6 +11,7 @@ const contact = () => {
                 <button>Careers</button>
                 <button>Privacy and Policy</button>
                 <button>Trade</button>
+                <button>Info</button>
             </div>
             <SocialIcons />
         </div>
